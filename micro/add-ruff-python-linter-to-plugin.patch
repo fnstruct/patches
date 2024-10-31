@@ -1,0 +1,11 @@
+diff -urN a/runtime/plugins/linter/linter.lua b/runtime/plugins/linter/linter.lua
+--- a/runtime/plugins/linter/linter.lua	2024-08-27 17:58:17.000000000 +0000
++++ b/runtime/plugins/linter/linter.lua	2024-10-31 00:05:39.301016245 +0000
+@@ -83,6 +83,7 @@
+     makeLinter("mypy", "python", "mypy", {"%f"}, "%f:%l: %m")
+     makeLinter("pylint", "python", "pylint", {"--output-format=parseable", "--reports=no", "%f"}, "%f:%l: %m")
+     makeLinter("flake8", "python", "flake8", {"%f"}, "%f:%l:%c: %m")
++    makeLinter("ruff", "python", "ruff", {"check", "-q", "%f"}, "%f:%l:%c: %m")
+     makeLinter("shfmt", "shell", "shfmt", {"%f"}, "%f:%l:%c: %m")
+     makeLinter("shellcheck", "shell", "shellcheck", {"-f", "gcc", "%f"}, "%f:%l:%c:.+: %m")
+     makeLinter("swiftc", "swift", "xcrun", {"swiftc", "%f"}, "%f:%l:%c:.+: %m", {"darwin"}, true)
